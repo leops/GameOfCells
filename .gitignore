@@ -1,0 +1,4 @@
+﻿
+*.vcxproj
+*.filters
+/Debug
