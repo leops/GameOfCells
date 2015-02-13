@@ -1,7 +1,6 @@
 #pragma once
 
 #include "joueur.hpp"
-#include "partie.hpp"
 
 class Demon : public Joueur {
 	public:

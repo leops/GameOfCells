@@ -1,4 +1,5 @@
 #include "demon.hpp"
+#include "partie.hpp"
 
 using namespace std;
 

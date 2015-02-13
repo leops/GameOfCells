@@ -1,4 +1,5 @@
 #include "ange.hpp"
+#include "partie.hpp"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ bool Ange::incorrect(const Position & pos) const {
 	size_t dim = getPlateau().getDim(),
 		x = get<0>(pos),
 		y = get<1>(pos);
-	return get<0>(cell) || !get<1>(cell) || len >= 2 || x > dim || y > dim;
+	return get<0>(cell) || len >= 2 || x > dim || y > dim;
 }
 
 void Ange::modifierCase(const Position & pos) {

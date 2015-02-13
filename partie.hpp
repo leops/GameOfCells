@@ -1,11 +1,10 @@
 #pragma once
 
 #include "plateau.hpp"
-#include "joueur.hpp"
+#include "ange.hpp"
+#include "demon.hpp"
 #include <vector>
-
-class Ange;
-class Demon;
+#include <memory>
 
 class Partie {
 	public:
@@ -15,5 +14,5 @@ class Partie {
 		bool canPlay();
 	private:
 		Plateau m_plateau;
-		std::pair<Ange*, Demon*> m_joueurs;
+		std::pair<std::shared_ptr<Ange>, std::shared_ptr<Demon>> m_joueurs; // Des pointeurs ? En C++ ? hahahaha ! HAHAHAHAHA !
 };
