@@ -1,15 +1,16 @@
 #include "joueur.hpp"
+#include "partie.hpp"
 
 using namespace std;
 
-Joueur::Joueur(Plateau& plateau, const string& nom) : m_plateau(plateau), m_pseudo(nom) {
+Joueur::Joueur(Partie* partie, const string& nom) : m_partie(partie), m_pseudo(nom) {
 }
 
 Position Joueur::saisir() const {
 	size_t x, y;
-	cout << "Entrez la position x:" << endl;
+	cout << "Entrez la position x: ";
 	cin >> x;
-	cout << "Entrez la position y:" << endl;
+	cout << "Entrez la position y: ";
 	cin >> y;
 	return Position(x, y);
 }
@@ -28,5 +29,10 @@ void Joueur::jouer() {
 }
 
 Plateau & Joueur::getPlateau() const {
-	return m_plateau;
+	return m_partie->getPlateau();
 }
+
+/*ostream& operator<< (ostream& out, const Position& t) {
+	out << "Pos(" << get<0>(t) << ", " << get<1>(t) << ")";
+	return out;
+}*/

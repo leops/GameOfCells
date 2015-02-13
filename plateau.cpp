@@ -16,8 +16,10 @@ Case Plateau::getCase(const Position& pos) const {
 
 void Plateau::setCase(const Position & pos, const Case & cell) {
 	auto it = m_gameboard.find(pos);
-	if(it != m_gameboard.end())
+	if (it != m_gameboard.end())
 		it->second = cell;
+	else
+		m_gameboard.emplace(pos, cell);
 }
 
 size_t Plateau::getDim() const {

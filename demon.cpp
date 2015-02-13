@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Demon::Demon(Plateau& plateau, const std::string & nom) : Joueur(plateau, nom) {
+Demon::Demon(Partie* partie, const std::string & nom) : Joueur(partie, nom) {
 }
 
 bool Demon::incorrect(const Position & pos) const {
