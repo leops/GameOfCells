@@ -33,6 +33,16 @@ void Partie::tourDeJeu() {
 		return;
 	}
 
+	char grow;
+	cout << "Voulez vous agrandir le plateau, (O)ui ou (N)on:";
+	cin >> grow;
+
+	if (grow == 'O') {
+		++m_plateau;
+		system("cls");
+		cout << m_plateau;
+	}
+
 	m_joueurs.second->jouer();
 	system("cls");
 	cout << m_plateau;

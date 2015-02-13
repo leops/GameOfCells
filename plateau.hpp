@@ -14,6 +14,7 @@ class Plateau {
 		Case getCase(const Position& pos) const;
 		void setCase(const Position& pos, const Case& cell);
 		size_t getDim() const;
+		Plateau& operator++(void);
 	private:
 		std::map<Position, Case> m_gameboard;
 		size_t m_dim;
