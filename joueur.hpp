@@ -4,11 +4,16 @@
 #include <string>
 #include <iostream>
 
-class Partie;
-
+/*! Classe de base pour tous les joueurs
+ * Bien que le jeu ait un gameplay asymetrique, les deux tours de jeu ont une structure commune,
+ * représentée par la classe joueur. Cette classe demande au joueur de choisir une case valide
+ * (la validation est laissée aux classes enfant), puis joue cette case (la encore l'action est
+ * effectuée par les classes enfant).
+ * Chaque joueur garde en mémoire son pseudo (affiché par la fonction jouer()) ainsi qu'une référence vers le plateau de jeu.
+ */
 class Joueur {
 	public:
-		explicit Joueur(Partie* partie, const std::string& nom = "Joueur");
+		explicit Joueur(Plateau& plateau, const std::string& nom = "Joueur");
 		Position saisir() const;
 		virtual bool incorrect(const Position& pos) const = NULL;
 		Position choisirCase() const;
@@ -16,8 +21,6 @@ class Joueur {
 		void jouer();
 		Plateau& getPlateau() const;
 	private:
-		Partie* m_partie;
+		Plateau& m_plateau;
 		std::string m_pseudo;
 };
-
-//std::ostream& operator<< (std::ostream& out, const Position& t);

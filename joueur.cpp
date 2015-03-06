@@ -1,11 +1,12 @@
 #include "joueur.hpp"
-#include "partie.hpp"
 
 using namespace std;
 
-Joueur::Joueur(Partie* partie, const string& nom) : m_partie(partie), m_pseudo(nom) {
+//! Initilisation des variables membre
+Joueur::Joueur(Plateau& plateau, const string& nom) : m_plateau(plateau), m_pseudo(nom) {
 }
 
+//! Demande au joueur d'entre une position
 Position Joueur::saisir() const {
 	size_t x, y;
 	cout << "Entrez la position x: ";
@@ -15,6 +16,7 @@ Position Joueur::saisir() const {
 	return Position(x, y);
 }
 
+//! Demande au joueur d'entre une case tant qu'elle est incorrecte
 Position Joueur::choisirCase() const {
 	Position pos;
 	do {
@@ -23,16 +25,13 @@ Position Joueur::choisirCase() const {
 	return pos;
 }
 
+//! Affiche le pseudo du joueur, puis joue une case après avoir demandé de l'entrer
 void Joueur::jouer() {
 	cout << "C'est au joueur " << m_pseudo << " de jouer." << endl;
 	modifierCase(choisirCase());
 }
 
+//! Getter pour le plateau
 Plateau & Joueur::getPlateau() const {
-	return m_partie->getPlateau();
+	return m_plateau;
 }
-
-/*ostream& operator<< (ostream& out, const Position& t) {
-	out << "Pos(" << get<0>(t) << ", " << get<1>(t) << ")";
-	return out;
-}*/
